@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+void in_top(int score){
+    
+    if(score > 100){
+        cout<<"not valid";
+    }
+    else if(score >= 90 && score <= 100){
+        cout<<"IN top 10";
+    }
+    else{
+        cout<<"Not in top 10";
+        
+    }
+}
+
+int main(){
+    
+    int score;
+    cout<<"enter score"<<endl;
+    cin>>score;
+    in_top(score);
+    
+    
+}

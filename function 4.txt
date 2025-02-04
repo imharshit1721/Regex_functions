@@ -1,0 +1,36 @@
+/*
+Define the fine structure based on the number of overdue days:
+1-5 days: ₹5 per day.
+6-10 days: ₹10 per day.
+11-30 days: ₹15 per day.
+Beyond 30 days: ₹500 fixed fine. */
+
+
+#include<iostream>
+using namespace std;
+
+int fine(int days){
+       int fine; 
+      if(days >=1 && days <= 5)
+          fine = days * 5;
+      else if(days >= 6 && days <= 10)
+          fine = 5 * 5 + (days - 5) * 10;
+      else if(days >= 11 && days <= 30)
+          fine = 5*5 + 5*10 + (days - 10) * 15;
+      else if(days > 30){
+          fine = 500;
+      }
+      return fine;
+}
+
+int main(){
+    
+    int days;
+    cout<<"enter the days"<<endl;
+    cin>>days;
+    
+    int fines = fine(days);
+    
+    cout<<"The fine is "<<fines;
+    
+}

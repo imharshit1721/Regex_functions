@@ -1,0 +1,47 @@
+//Implement a C++ function that takes the number of hours a car is parked as an argument and returns the parking fee based on hourly rates using if-else statements.
+/*
+Define the hourly parking fee structure as follows:
+First 2 hours: ₹20 per hour.
+Next 3 hours: ₹15 per hour.
+Beyond 5 hours: ₹10 per hour.
+For example:
+1 hour → ₹10
+3 hours → ₹20 + ₹15 = ₹35
+6 hours → ₹20 (2 hours) + ₹15 (3 hours) + ₹10 (1 hour) = ₹85
+*/
+
+
+
+
+#include<iostream>
+using namespace std;
+int calculate_fee(int hours){
+    int fees;
+    if(hours <= 2){
+        fees = hours * 20;
+    }
+    else if(hours > 2 && hours <= 5 ){
+        fees = 2 * 20 + (hours - 2) * 15;
+    }
+    
+    else if(hours > 5){
+        fees = 2 * 20 + 3 * 15 + (hours - 5) * 10; 
+    }
+    return fees;
+} 
+
+int main(){
+    
+    int hours;
+    cout<<"enter hour"<<endl;
+    cin>>hours;
+    
+    if(hours <= 0){
+        cout<<"Invalid input"<<endl;
+    }
+    
+    else{
+        int price = calculate_fee(hours);
+        cout<<"The Total price of car parked is = "<<price;
+        
+    }

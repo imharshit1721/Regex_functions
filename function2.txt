@@ -1,0 +1,56 @@
+/*
+Implement a C++ function that takes a person's income as an argument and returns their tax bracket using if-else statements.
+
+Define tax brackets based on income:
+Income ≤ ₹2,50,000: .
+₹2,50,001 - ₹5,00,000: .
+₹5,00,001 - ₹10,00,000: .
+Income > ₹10,00,000: .  
+
+
+₹2,00,000 → No tax.
+₹3,00,000 → 5% of ₹50,000 = ₹2,500.
+₹7,00,000 → 20% of ₹2,00,000 = ₹40,000.
+₹12,00,000 → 30% of ₹2,00,000 = ₹60,000.
+
+*/
+#include<iostream>
+using namespace std;
+
+int total_tax(int income){
+    int tax;
+    
+  if(income <= 250000){
+      tax = 0;
+  }    
+  else if(income > 250000 && income <= 500000){
+      int tax_income = (income - 250000);
+      tax = (tax_income/100) * 5; 
+  }
+ 
+  
+  else if(income > 500000 && income <= 1000000){
+      int tax_income = (income - 500000);
+      tax = (50000/100)*5 + (tax_income /100) * 20;
+  }
+  else if(income > 1000000){
+      int tax_income = (income - 1000000);
+      tax = (50000/100)*5 + (500000/100)*20 + (tax_income/100) * 30;
+  }
+  
+  return tax;
+  
+  
+}
+
+
+int main(){
+    int income;
+    cout<<"enter income"<<endl;
+    cin>>income;
+    int tax = total_tax(income);
+    cout<<"income "<<income<<endl;
+    cout<<"tax "<<tax<<endl;
+    cout<<"income after tax "<<income - tax;
+    
+}
